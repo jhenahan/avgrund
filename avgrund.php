@@ -48,8 +48,6 @@ function Avgrund( $atts, $content )
     </div>
 OUTPUT;
 
-    wp_localize_script( 'avgrund-wp', 'avgrundParams', $params );
-
     return $output;
 }
 
