@@ -39,12 +39,15 @@ function Avgrund( $atts, $content )
 
     $display_text = $attrs[ 'text' ];
 
-    $output = <<<OUTPUT
-<div class="avgrund" id="avgrund-{$id}">{$display_text}</div>
+    $json_params = wp_json_encode( $attrs );
+    $output      = <<<OUTPUT
+<div class="avgrund"
+     id="avgrund-{$id}"
+     data-avgrund='{$json_params}'>
+     {$display_text}
+    </div>
 OUTPUT;
 
-    $id_param = array( 'id' => $id );
-    $params   = array_merge( $attrs, $id_param );
     wp_localize_script( 'avgrund-wp', 'avgrundParams', $params );
 
     return $output;
